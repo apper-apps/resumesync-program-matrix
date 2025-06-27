@@ -1,0 +1,8 @@
+[
+  {
+    "Id": 1,
+    "text": "We are looking for a Senior Frontend Developer with expertise in React, TypeScript, and modern web technologies. The ideal candidate will have experience with state management, testing frameworks, and agile development methodologies.",
+    "keywords": ["React", "TypeScript", "Frontend", "JavaScript", "HTML", "CSS", "State Management", "Testing", "Agile"],
+    "requiredSkills": ["React", "TypeScript", "JavaScript", "HTML/CSS", "Git", "Testing"]
+  }
+]

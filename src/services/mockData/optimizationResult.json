@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "resumeId": "1",
+    "jdId": "1",
+    "score": 85,
+    "suggestions": [
+      {
+        "type": "keyword",
+        "original": "JavaScript",
+        "optimized": "JavaScript/TypeScript",
+        "reason": "Job description emphasizes TypeScript"
+      },
+      {
+        "type": "experience",
+        "original": "Developed web applications",
+        "optimized": "Developed scalable frontend applications using React and modern JavaScript frameworks",
+        "reason": "More specific and matches job requirements"
+      }
+    ],
+    "optimizedContent": {
+      "summary": "Experienced Frontend Developer specializing in React and TypeScript development",
+      "skills": ["JavaScript", "TypeScript", "React", "HTML/CSS", "State Management", "Testing Frameworks"],
+      "experience": [
+        {
+          "title": "Frontend Developer",
+          "description": "Developed scalable frontend applications using React and modern JavaScript frameworks, implementing state management solutions and comprehensive testing strategies"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "originalText": "John Smith\n\nSoftware Engineer\n\nExperience:\n- Developed web applications using React and Node.js\n- Worked with databases and APIs\n- Collaborated with team members\n\nSkills:\n- JavaScript\n- React\n- Node.js\n- HTML/CSS",
+    "optimizedText": "",
+    "fileName": "john_smith_resume.pdf",
+    "uploadDate": "2024-01-15T10:30:00Z",
+    "atsScore": 0
+  }
+]
