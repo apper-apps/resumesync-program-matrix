@@ -134,55 +134,134 @@ const Home = () => {
             }}
           />
         ) : (
-          <div className="space-y-8">
+<div className="space-y-8">
             {/* Progress Indicator */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-center space-x-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-gray-200"
+              className="flex items-center justify-center space-x-4 p-6 bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className={`flex items-center space-x-2 ${currentResume ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${
-                  currentResume ? 'border-green-500 bg-green-50' : 'border-gray-300'
-                }`}>
+              <motion.div 
+                className={`flex items-center space-x-3 ${currentResume ? 'text-green-600' : 'text-gray-400'}`}
+                animate={{ 
+                  scale: currentResume ? 1.05 : 1,
+                  opacity: 1 
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center relative overflow-hidden ${
+                    currentResume ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-white'
+                  }`}
+                  animate={{ 
+                    borderColor: currentResume ? '#10b981' : '#d1d5db',
+                    backgroundColor: currentResume ? '#ecfdf5' : '#ffffff',
+                    scale: currentResume ? [1, 1.1, 1] : 1
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
                   {currentResume ? (
-                    <ApperIcon name="Check" className="w-4 h-4" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <ApperIcon name="Check" className="w-5 h-5" />
+                    </motion.div>
                   ) : (
-                    <span className="text-sm font-medium">1</span>
+                    <span className="text-sm font-semibold">1</span>
                   )}
-                </div>
-                <span className="text-sm font-medium">Upload Resume</span>
-              </div>
+                </motion.div>
+                <span className="text-sm font-semibold">Upload Resume</span>
+              </motion.div>
               
-              <div className={`w-12 h-px ${currentResume ? 'bg-green-300' : 'bg-gray-300'}`} />
+              <motion.div 
+                className={`w-16 h-0.5 rounded-full ${currentResume ? 'bg-green-400' : 'bg-gray-300'}`}
+                animate={{ 
+                  backgroundColor: currentResume ? '#4ade80' : '#d1d5db',
+                  scaleX: currentResume ? 1 : 0.7
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
               
-              <div className={`flex items-center space-x-2 ${jobDescription ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${
-                  jobDescription ? 'border-green-500 bg-green-50' : 'border-gray-300'
-                }`}>
+              <motion.div 
+                className={`flex items-center space-x-3 ${jobDescription ? 'text-green-600' : currentResume ? 'text-blue-600' : 'text-gray-400'}`}
+                animate={{ 
+                  scale: jobDescription ? 1.05 : currentResume ? 1.02 : 1,
+                  opacity: currentResume ? 1 : 0.6 
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center relative overflow-hidden ${
+                    jobDescription ? 'border-green-500 bg-green-50' : 
+                    currentResume ? 'border-blue-500 bg-blue-50' : 'border-gray-300 bg-white'
+                  }`}
+                  animate={{ 
+                    borderColor: jobDescription ? '#10b981' : currentResume ? '#3b82f6' : '#d1d5db',
+                    backgroundColor: jobDescription ? '#ecfdf5' : currentResume ? '#eff6ff' : '#ffffff',
+                    scale: jobDescription ? [1, 1.1, 1] : currentResume ? 1.02 : 1
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
                   {jobDescription ? (
-                    <ApperIcon name="Check" className="w-4 h-4" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <ApperIcon name="Check" className="w-5 h-5" />
+                    </motion.div>
                   ) : (
-                    <span className="text-sm font-medium">2</span>
+                    <span className="text-sm font-semibold">2</span>
                   )}
-                </div>
-                <span className="text-sm font-medium">Add Job Description</span>
-              </div>
+                </motion.div>
+                <span className="text-sm font-semibold">Add Job Description</span>
+              </motion.div>
               
-              <div className={`w-12 h-px ${optimizationResults ? 'bg-green-300' : 'bg-gray-300'}`} />
+              <motion.div 
+                className={`w-16 h-0.5 rounded-full ${optimizationResults ? 'bg-green-400' : jobDescription ? 'bg-blue-400' : 'bg-gray-300'}`}
+                animate={{ 
+                  backgroundColor: optimizationResults ? '#4ade80' : jobDescription ? '#60a5fa' : '#d1d5db',
+                  scaleX: optimizationResults ? 1 : jobDescription ? 0.8 : 0.7
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
               
-              <div className={`flex items-center space-x-2 ${optimizationResults ? 'text-green-600' : 'text-gray-400'}`}>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${
-                  optimizationResults ? 'border-green-500 bg-green-50' : 'border-gray-300'
-                }`}>
+              <motion.div 
+                className={`flex items-center space-x-3 ${optimizationResults ? 'text-green-600' : jobDescription ? 'text-orange-600' : 'text-gray-400'}`}
+                animate={{ 
+                  scale: optimizationResults ? 1.05 : jobDescription ? 1.02 : 1,
+                  opacity: jobDescription ? 1 : 0.6 
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center relative overflow-hidden ${
+                    optimizationResults ? 'border-green-500 bg-green-50' : 
+                    jobDescription ? 'border-orange-500 bg-orange-50' : 'border-gray-300 bg-white'
+                  }`}
+                  animate={{ 
+                    borderColor: optimizationResults ? '#10b981' : jobDescription ? '#f97316' : '#d1d5db',
+                    backgroundColor: optimizationResults ? '#ecfdf5' : jobDescription ? '#fff7ed' : '#ffffff',
+                    scale: optimizationResults ? [1, 1.1, 1] : jobDescription ? 1.02 : 1
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
                   {optimizationResults ? (
-                    <ApperIcon name="Download" className="w-4 h-4" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <ApperIcon name="Download" className="w-5 h-5" />
+                    </motion.div>
                   ) : (
-                    <span className="text-sm font-medium">3</span>
+                    <span className="text-sm font-semibold">3</span>
                   )}
-                </div>
-                <span className="text-sm font-medium">Download Optimized</span>
-              </div>
+                </motion.div>
+                <span className="text-sm font-semibold">Download Optimized</span>
+              </motion.div>
             </motion.div>
 
             {/* Two Column Layout */}

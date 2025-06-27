@@ -72,15 +72,27 @@ const ResumeUploadSection = ({ onResumeUpload, currentResume }) => {
               <ApperIcon name="CheckCircle" className="w-5 h-5 text-green-500" />
             </div>
           </motion.div>
-          
-          <div className="text-center">
+<div className="text-center">
+            <input
+              type="file"
+              accept=".pdf,.docx"
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  handleFileSelect(e.target.files[0]);
+                }
+                e.target.value = ''; // Reset input
+              }}
+              className="hidden"
+              id="replace-resume-input"
+            />
             <Button
               variant="outline"
               size="sm"
               icon="Upload"
-              onClick={() => handleClearResume()}
+              onClick={() => document.getElementById('replace-resume-input')?.click()}
+              disabled={uploading}
             >
-              Upload Different Resume
+              {uploading ? 'Uploading...' : 'Upload Different Resume'}
             </Button>
           </div>
         </div>
