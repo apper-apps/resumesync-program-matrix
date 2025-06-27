@@ -1,8 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
-
 const FileUpload = ({ 
   onFileSelect, 
   accept = '.pdf,.docx', 
@@ -11,6 +10,7 @@ const FileUpload = ({
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState('');
+  const fileInputRef = useRef(null);
 
   const validateFile = (file) => {
     if (file.size > maxSize) {
@@ -55,7 +55,7 @@ const FileUpload = ({
     if (files && files[0]) {
       handleFile(files[0]);
     }
-  }, [handleFile]);
+}, [handleFile]);
 
   const handleInputChange = (e) => {
     const files = e.target.files;
@@ -64,6 +64,11 @@ const FileUpload = ({
     }
   };
 
+  const handleButtonClick = () => {
+    if (fileInputRef.current && !loading) {
+      fileInputRef.current.click();
+    }
+  };
 return (
     <div className="w-full">
       <motion.div
@@ -86,8 +91,9 @@ return (
           }
           ${loading ? 'pointer-events-none' : ''}
         `}
-      >
+>
         <input
+          ref={fileInputRef}
           type="file"
           accept={accept}
           onChange={handleInputChange}
@@ -150,12 +156,16 @@ return (
             </p>
           </motion.div>
           
-          {!loading && (
+{!loading && (
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" size="sm">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={handleButtonClick}
+              >
                 <ApperIcon name="FolderOpen" className="w-4 h-4 mr-2" />
                 Choose File
               </Button>
